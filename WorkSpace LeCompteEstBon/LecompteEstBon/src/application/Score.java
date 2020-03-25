@@ -1,13 +1,18 @@
 package application;
 
+import java.io.BufferedWriter;
+import java.io.Serializable;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Score d'une personne
  */
-public class Score implements Comparable<Score>{
+public class Score implements Comparable<Score>, Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	/** Pseudo d'une personne */
 	private String pseudo;
 	
@@ -30,7 +35,8 @@ public class Score implements Comparable<Score>{
 	}
  
 	/**
-	 * Crée un affichage pour le temps
+	 * Crée un affichage im not dead
+	 * pour le temps
 	 * @return une chaine de caractère de temps
 	 */
 	private String traitementTemps() {

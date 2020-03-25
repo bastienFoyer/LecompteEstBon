@@ -55,6 +55,7 @@ public class GereScore {
 	/**
 	 * Recupere dans un fichier binaire les données
 	 */
+	@SuppressWarnings("unchecked")
 	public void readObject() {
 		Path paths = Paths.get(System.getProperty("user.dir"),"SaveFile.bin"); 
 		try {
