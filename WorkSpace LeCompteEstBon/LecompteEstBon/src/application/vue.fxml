@@ -1,40 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="600.0" maxWidth="800.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <AnchorPane prefHeight="70.0" prefWidth="616.0" stylesheets="@application.css" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="306.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" text="Jouer" />
-            <Button layoutX="418.0" layoutY="27.0" mnemonicParsing="false" text="Scores" />
-            <Label layoutX="88.0" layoutY="31.0" text="Pseudo" />
-            <TextField layoutX="141.0" layoutY="27.0" />
-         </children>
-      </AnchorPane>
-   </top>
+<BorderPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controleur">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox maxHeight="340.0" maxWidth="500.0" minHeight="340.0" minWidth="500.0" prefHeight="340.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea layoutX="23.0" layoutY="107.0" prefHeight="170.0" prefWidth="311.0" />
-            <TextField layoutX="25.0" layoutY="69.0" prefHeight="25.0" prefWidth="220.0" />
-            <Button layoutX="112.0" layoutY="24.0" mnemonicParsing="false" text="8" />
-            <Button layoutX="146.0" layoutY="24.0" mnemonicParsing="false" text="100" />
-            <Button layoutX="193.0" layoutY="24.0" mnemonicParsing="false" text="2" />
-            <Button layoutX="70.0" layoutY="24.0" mnemonicParsing="false" text="102" />
-            <Button layoutX="252.0" layoutY="69.0" mnemonicParsing="false" text="Annuler" />
-            <Button layoutX="323.0" layoutY="69.0" mnemonicParsing="false" text="Valider" />
-            <Label layoutX="411.0" layoutY="137.0" text="Nombre Proposée" />
-            <Label layoutX="446.0" layoutY="107.0" text="000" />
-            <Button layoutX="420.0" layoutY="207.0" mnemonicParsing="false" text="Proposer" />
-            <Button layoutX="156.0" layoutY="291.0" mnemonicParsing="false" text="Supprimer" />
+            <VBox maxHeight="340.0" maxWidth="400.0" minHeight="340.0" minWidth="400.0" prefHeight="340.0" prefWidth="400.0">
+               <children>
+                  <ButtonBar fx:id="operations" buttonMinWidth="50.0" maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="40.0" prefWidth="400.0" />
+                  <ButtonBar fx:id="plaqueChiffre" buttonMinWidth="50.0" maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="40.0" prefWidth="400.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="374.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="historique" editable="false">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="annuler" mnemonicParsing="false" onAction="#actionAnnuler" text="Annuler" />
+                        <Button fx:id="valider" mnemonicParsing="false" onAction="#actionValider" text="Valider" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="217.0" prefWidth="400.0">
+                     <children>
+                        <VBox prefHeight="217.0" prefWidth="247.0">
+                           <children>
+                              <TextArea fx:id="logCalcul" editable="false" prefHeight="200.0" prefWidth="160.0">
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                              <Button fx:id="supprimer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionSupprimer" prefHeight="25.0" prefWidth="79.0" text="Supprimer">
+                                 <VBox.margin>
+                                    <Insets left="80.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="217.0" prefWidth="128.0">
+                           <children>
+                              <Label fx:id="nombreObjectif" prefHeight="25.0" prefWidth="28.0" text="Label" />
+                              <Label fx:id="nombreATrouver" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="95.0" text="Nombre à trouver" />
+                              <Button fx:id="proposer" mnemonicParsing="false" onAction="#actionProposer" prefHeight="43.0" prefWidth="85.0" text="Proposer">
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="tempslabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="340.0" maxWidth="100.0" minHeight="340.0" minWidth="100.0" prefHeight="340.0" prefWidth="100.0" text="Label" textAlignment="CENTER" />
          </children>
-      </AnchorPane>
+      </HBox>
    </center>
+   <top>
+      <HBox maxHeight="60.0" maxWidth="500.0" minHeight="60.0" minWidth="500.0" prefHeight="60.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="78.0" text=" Pseudo :" />
+            <TextField fx:id="pseudoPlayer" prefHeight="25.0" prefWidth="106.0">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="play" mnemonicParsing="false" onAction="#actionJouer" prefHeight="25.0" prefWidth="92.0" text="Jouer">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="scores" mnemonicParsing="false" onAction="#actionScores" prefHeight="25.0" prefWidth="82.0" text="Scores" />
+            <Label fx:id="time" prefHeight="20.0" prefWidth="104.0" text="Label">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+         </padding>
+      </HBox>
+   </top>
 </BorderPane>
